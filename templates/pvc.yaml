@@ -2,10 +2,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "wordpress.fullname" . }}
+  name: {{ template "humhub.fullname" . }}
   labels:
-    app: "{{ template "wordpress.fullname" . }}"
-    chart: "{{ template "wordpress.chart" . }}"
+    app: "{{ template "humhub.fullname" . }}"
+    chart: "{{ template "humhub.chart" . }}"
     release: {{ .Release.Name | quote }}
     heritage: {{ .Release.Service | quote }}
 spec:
@@ -14,5 +14,5 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.size | quote }}
-  {{ include "wordpress.storageClass" . }}
+  {{ include "humhub.storageClass" . }}
 {{- end -}}
